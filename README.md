@@ -41,7 +41,7 @@ Este proyecto está desarrollado con modernas tecnologías web:
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/your-username/jungle-breezes.git
+git clone https://github.com/your-username/Jungle-Breezes.git
 
 # Navegar al directorio del proyecto
 cd jungle-breezes
