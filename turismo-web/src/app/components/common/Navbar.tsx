@@ -3,12 +3,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguajeContext';
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'es' ? 'en' : 'es');
   };
 
   return (
@@ -17,7 +24,6 @@ const Navbar = () => {
         {/* Logo y nombre de la empresa */}
         <div className="flex items-center space-x-3">
           <div className="h-10 w-10 relative">
-            {/* Reemplaza "/logo.png" con la ruta correcta a tu logo */}
             <Image 
               src="/images/logos/logo1.jpg" 
               alt="Logo de la empresa" 
@@ -27,36 +33,52 @@ const Navbar = () => {
             />
           </div>
           <Link href="/" className="text-2xl font-bold tracking-tight bg-gradient-to-r from-green-50 to-white bg-clip-text text-transparent hover:opacity-80 transition duration-300">
-            NombreEmpresa
+            {t('navbar.name')}
           </Link>
         </div>
         
         {/* Menú desktop */}
-        <div className="hidden md:flex space-x-5">
+        <div className="hidden md:flex items-center space-x-5">
           <Link href="/">
-            <span className="inline-block px-4 py-2 font-medium border-2 border-green-600 hover:border-green-50 rounded-lg hover:bg-green-700 transition duration-300">
-              Inicio
+            <span className="inline-block px-4 py-2 font-medium border-2 border-green-600 hover:border-green-50 rounded-full hover:bg-green-700 transition duration-300">
+              {t('navbar.home')}
             </span>
           </Link>
           <Link href="/servicios">
-            <span className="inline-block px-4 py-2 font-medium border-2 border-green-600 hover:border-green-50 rounded-lg hover:bg-green-700 transition duration-300">
-              Servicios
+            <span className="inline-block px-4 py-2 font-medium border-2 border-green-600 hover:border-green-50 rounded-full hover:bg-green-700 transition duration-300">
+              {t('navbar.services')}
             </span>
           </Link>
           <Link href="/sobre-nosotros">
-            <span className="inline-block px-4 py-2 font-medium border-2 border-green-600 hover:border-green-50 rounded-lg hover:bg-green-700 transition duration-300">
-              Sobre Nosotros
+            <span className="inline-block px-4 py-2 font-medium border-2 border-green-600 hover:border-green-50 rounded-full hover:bg-green-700 transition duration-300">
+              {t('navbar.aboutUs')}
             </span>
           </Link>
           <Link href="/contacto">
-            <span className="inline-block px-4 py-2 font-medium border-2 border-green-600 hover:border-green-50 rounded-lg hover:bg-green-700 transition duration-300">
-              Contacto
+            <span className="inline-block px-4 py-2 font-medium border-2 border-green-600 hover:border-green-50 rounded-full hover:bg-green-700 transition duration-300">
+              {t('navbar.contact')}
             </span>
           </Link>
+          
+          {/* Selector de idioma */}
+          <button 
+            onClick={toggleLanguage}
+            className="inline-block px-3 py-1 font-medium border-2 border-green-600 rounded-full hover:border-green-50 transition duration-300"
+          >
+            {t('navbar.language')}
+          </button>
         </div>
         
         {/* Botón hamburguesa */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center space-x-2">
+          {/* Selector de idioma móvil */}
+          <button 
+            onClick={toggleLanguage}
+            className="px-2 py-1 font-medium border border-green-50 rounded-lg hover:bg-green-700 transition duration-300 text-sm"
+          >
+            {t('navbar.language')}
+          </button>
+          
           <button 
             onClick={toggleMenu} 
             className="focus:outline-none focus:ring-2 focus:ring-green-50 rounded p-1 hover:bg-green-700 transition duration-300"
@@ -79,7 +101,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 <span className="block py-2 px-4 border-2 border-green-600 hover:border-green-50 rounded-lg hover:bg-green-600 transition duration-300">
-                  Inicio
+                  {t('navbar.home')}
                 </span>
               </Link>
               <Link 
@@ -87,7 +109,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 <span className="block py-2 px-4 border-2 border-green-600 hover:border-green-50 rounded-lg hover:bg-green-600 transition duration-300">
-                  Servicios
+                  {t('navbar.services')}
                 </span>
               </Link>
               <Link 
@@ -95,7 +117,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 <span className="block py-2 px-4 border-2 border-green-600 hover:border-green-50 rounded-lg hover:bg-green-600 transition duration-300">
-                  Sobre Nosotros
+                  {t('navbar.aboutUs')}
                 </span>
               </Link>
               <Link 
@@ -103,7 +125,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 <span className="block py-2 px-4 border-2 border-green-600 hover:border-green-50 rounded-lg hover:bg-green-600 transition duration-300">
-                  Contacto
+                  {t('navbar.contact')}
                 </span>
               </Link>
             </div>

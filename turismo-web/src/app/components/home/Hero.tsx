@@ -1,7 +1,12 @@
 // src/components/home/Hero.tsx
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguajeContext';
+
 
 const Hero = () => {
+
+  const { t } = useLanguage();
+
   return (
     
     <div className="relative h-screen">
@@ -19,24 +24,23 @@ const Hero = () => {
       <div className="relative h-full flex items-center justify-center text-center px-4">
         <div className="max-w-4xl">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Aventura y Adrenalina en Plena Naturaleza
+            {t('hero.title')}
           </h1>
           <p className="text-xl md:text-2xl text-white mb-8">
-            Descubre la emoción del canopy, los puentes colgantes y el paintball 
-            en un entorno natural incomparable.
+            {t('hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
               href="/activities" 
               className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors"
             >
-              Ver Actividades
+              {t('hero.seeActivities')}
             </Link>
             <Link 
               href="/book" 
               className="bg-transparent hover:bg-white/20 text-white border-2 border-white font-bold py-3 px-8 rounded-full text-lg transition-colors"
             >
-              Reservar Ahora
+              {t('hero.bookin')}
             </Link>
           </div>
         </div>
