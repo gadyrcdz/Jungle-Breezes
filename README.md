@@ -5,7 +5,8 @@
 
 > Un paraíso de aventura y naturaleza en Costa Rica. Descubre nuestras experiencias de canopy, puentes colgantes, paintball y más.
 
-![Jungle Breezes Preview](/api/placeholder/1200/630)
+![image](https://github.com/user-attachments/assets/1e2f0b3c-1668-4221-b37e-0420c6f6dcb0)
+
 
 ## 📋 Contenido
 
@@ -110,4 +111,4 @@ Las contribuciones son bienvenidas! Por favor, lee primero las [guías de contri
 
 ---
 
-Desarrollado con ❤️ por [Tu Nombre](https://github.com/your-username)
+Desarrollado con ❤️ por [Gadyr Calderón Díaz](https://github.com/gadyrcdz)
