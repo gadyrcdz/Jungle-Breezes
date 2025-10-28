@@ -27,8 +27,8 @@ const Navbar = () => {
             <Image 
               src="/images/logos/logo1.jpg" 
               alt="Logo de la empresa" 
-              layout="fill" 
-              objectFit="contain"
+              fill
+              style={{ objectFit: 'cover' }}
               className="rounded-full"
             />
           </div>

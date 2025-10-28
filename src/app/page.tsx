@@ -5,6 +5,7 @@ import ActivityCards from './components/home/ActivityCards';
 import Testimonials from './components/home/Testimonials';
 import ContactCTA from './components/home/ContactCTA';
 import Navbar from './components/common/Navbar';
+import Footer from './components/layout/Footer';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <ActivityCards />
       <Testimonials />
       <ContactCTA />
+      <Footer/>
     </>
   );
 }
