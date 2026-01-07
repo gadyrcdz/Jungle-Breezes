@@ -1,0 +1,98 @@
+/* src/styles/ActivityCards.css - FUENTES CORRECTAS DE LA REFERENCIA */
+
+/* Fuentes exactas de la referencia - Lato y Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@400;500;700;900&display=swap');
+
+/* Aplicar Lato como fuente principal */
+body,
+.activity-cards-section,
+.activity-cards-section p,
+.activity-cards-section span {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Títulos con Roboto Black (900) */
+.activity-cards-section h2,
+.activity-cards-section h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+/* Botones con Roboto Bold */
+.activity-cards-section button,
+.activity-cards-section a[class*="uppercase"] {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* Checkmarks verdes pequeños */
+.check-circle-small {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.check-circle-small svg {
+  width: 10px;
+  height: 10px;
+  color: white;
+}
+
+/* Precio sin fondo */
+.price-no-bg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Tagline con fondo verde */
+.tagline-green-bg {
+  background-color: #2D6A4F;
+  color: white;
+}
+
+/* Barra de actividades azul */
+.activity-bar-blue {
+  background-color: #4169E1;
+}
+
+/* Sombras sutiles */
+.card-shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-shadow-hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Transiciones suaves */
+.transition-smooth {
+  transition: all 0.3s ease;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .activity-cards-section h2 {
+    font-size: 2rem;
+  }
+  
+  .activity-cards-section h3 {
+    font-size: 1.25rem;
+  }
+  
+  .price-no-bg {
+    font-size: 2rem;
+  }
+}
+
+/* Mejoras de contraste para el precio */
+.price-text {
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.4));
+}
