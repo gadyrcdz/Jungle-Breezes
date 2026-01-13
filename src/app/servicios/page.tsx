@@ -9,7 +9,7 @@ export default function ServiciosPage() {
     <div className="flex flex-col min-h-screen">
       <Navbar />
         <WorkInProgress 
-          titleKey="navbar.services"  // ← Usa la clave de traducción
+          titleKey="navbar.services"  
           icon="🌳" 
           backgroundImage="/images/hero/adventure-hero.jpg" 
         />
