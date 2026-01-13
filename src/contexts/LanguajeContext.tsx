@@ -264,8 +264,7 @@ const translations: TranslationsType = {
           'Todo el Paquete Aventura',
           'Paintball (2 horas)',
           '200 bolas de pintura',
-          'Almuerzo en restaurante',
-          'Video tour GoPro'
+          'Almuerzo en restaurante'
         ]
       }
     },
@@ -321,8 +320,7 @@ const translations: TranslationsType = {
           'All Adventure Package',
           'Paintball (2 hours)',
           '200 paintballs',
-          'Restaurant lunch',
-          'GoPro video tour'
+          'Restaurant lunch'
         ]
       }
     }

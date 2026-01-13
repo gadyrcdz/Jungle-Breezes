@@ -40,7 +40,7 @@ const ContactCTA = () => {
               <h3 className="text-2xl font-semibold mb-4">{t('contact.contactUs')}</h3>
               <p className="mb-4">{t('contact.textContact')}</p>
               <Link 
-                href="/contact" 
+                href="/contacto" 
                 className="inline-block bg-white hover:bg-gray-100 text-green-800 font-bold py-2 px-6 rounded-full transition-colors"
               >
                 {t('contact.contactButton')}

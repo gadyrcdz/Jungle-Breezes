@@ -91,7 +91,7 @@ const ActivityCards = () => {
 
   return (
     <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 max-w-[1400px]">
+      <div className="container mx-auto px-4 max-w-[1600px] ">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -103,7 +103,7 @@ const ActivityCards = () => {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative">
+        <div className="relative px-8">
           {/* Navigation Buttons */}
           {currentSlide > 0 && (
             <button
@@ -130,12 +130,12 @@ const ActivityCards = () => {
           )}
 
           {/* Cards Container */}
-          <div className="relative">
-            <div className="overflow-hidden">
+          <div className="relative ">
+            <div className="overflow-hidden pl-3">
               <div 
                 className="flex gap-6 transition-transform duration-700 ease-in-out"
                 style={{
-                  transform: `translateX(-${currentSlide * (100 / cardsPerView)}%)`,
+                  transform: `translateX(-${currentSlide * (105 / cardsPerView)}%)`,
                 }}
               >
                 {packages.map((pkg) => (
@@ -144,7 +144,7 @@ const ActivityCards = () => {
                     className="relative flex-shrink-0"
                     style={{ width: `${100 / cardsPerView}%` }}
                   >
-                    <div className="bg-white rounded-t-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col" style={{ overflow: 'visible', minHeight: '750px' }}>
+                    <div className="bg-white rounded-t-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col" style={{ overflow: 'visible', minHeight: '715px' }}>
                       {/* Image Section */}
                       <div className="relative h-[340px]" style={{ overflow: 'visible', borderTopLeftRadius: '0.75rem', borderTopRightRadius: '0.75rem' }}>
                         <Image
@@ -304,7 +304,7 @@ const ActivityCards = () => {
             {t('packages.customPackageText')}
           </p>
           <Link 
-            href="/contact"
+            href="/contacto"
             className="inline-flex items-center text-gray-800 font-semibold text-base hover:text-gray-600 transition-colors duration-200"
           >
             {t('packages.contactUs')}
