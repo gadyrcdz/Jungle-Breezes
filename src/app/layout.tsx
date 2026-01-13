@@ -1,4 +1,5 @@
 // src/app/layout.tsx
+'use client'
 import { LanguageProvider } from '@/contexts/LanguajeContext';
 import './globals.css';
 import { Playfair_Display, Open_Sans } from 'next/font/google';

@@ -59,7 +59,7 @@ const Testimonials = () => {
                 ))}
               </div>
               
-              <p className="text-lg italic mb-4">"{testimonial.quote}"</p>
+              <p className="text-lg italic mb-4">&ldquo;{testimonial.quote}&rdquo;</p>  {/* ← CAMBIO AQUÍ */}
               
               <div>
                 <p className="font-bold">{testimonial.name}</p>
