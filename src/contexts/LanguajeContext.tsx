@@ -3,13 +3,13 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 
 type Language = 'es' | 'en';
 
-// Definición recursiva para permitir múltiples niveles de anidamiento
+// Definición recursiva para permitir múltiples niveles de anidamiento INCLUYENDO ARRAYS
 interface TranslationValue {
-  [key: string]: string | TranslationValue;
+  [key: string]: string | string[] | TranslationValue; // ← Agregamos string[]
 }
 
 interface TranslationSection {
-  [key: string]: string | TranslationValue;
+  [key: string]: string | string[] | TranslationValue; // ← Agregamos string[]
 }
 
 interface TranslationLanguage {
@@ -25,7 +25,7 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (language: Language) => void;
   translations: TranslationsType;
-  t: (key: string) => string;
+  t: (key: string) => string | string[]; // ← Puede devolver string o array
 }
 
 const translations: TranslationsType = {
@@ -174,6 +174,158 @@ const translations: TranslationsType = {
       callText: 'Would you rather call us? We are available at',
       language: 'ES' 
     }
+  },
+  footer: {
+    es: {
+      companyName: 'Brisas de la Jungla',
+      description: 'Vive la aventura en la naturaleza con nuestras emocionantes actividades de canopy, puentes colgantes y paintball.',
+      quickLinks: 'Enlaces Rápidos',
+      canopy: 'Canopy',
+      bridges: 'Puentes Colgantes',
+      paintball: 'Paintball',
+      restaurant: 'Restaurante',
+      reservations: 'Reservaciones',
+      contact: 'Contacto',
+      address: 'Bosque Nacional, Carretera a las Montañas, Km 15, Costa Rica',
+      hours: 'Horarios',
+      weekdays: 'Lunes - Viernes: 8:00 AM - 5:00 PM',
+      weekends: 'Sábado - Domingo: 7:00 AM - 6:00 PM',
+      restaurantHours: 'Todos los días: 11:00 AM - 8:00 PM',
+      rights: 'Todos los derechos reservados.'
+    },
+    en: {
+      companyName: 'Jungle Breezes',
+      description: 'Experience adventure in nature with our exciting canopy, hanging bridges, and paintball activities.',
+      quickLinks: 'Quick Links',
+      canopy: 'Canopy',
+      bridges: 'Hanging Bridges',
+      paintball: 'Paintball',
+      restaurant: 'Restaurant',
+      reservations: 'Reservations',
+      contact: 'Contact',
+      address: 'National Forest, Mountain Highway, Km 15, Costa Rica',
+      hours: 'Hours',
+      weekdays: 'Monday - Friday: 8:00 AM - 5:00 PM',
+      weekends: 'Saturday - Sunday: 7:00 AM - 6:00 PM',
+      restaurantHours: 'Every day: 11:00 AM - 8:00 PM',
+      rights: 'All rights reserved.'
+    }
+  },
+  packages: {
+    es: {
+      sectionTitle: 'Nuestras Actividades',
+      sectionSubtitle: 'Descubre todas las experiencias que tenemos preparadas para ti y tu familia en Jungle Breezes.',
+      perPerson: '/ persona',
+      includes: 'Incluye:',
+      bookNow: 'RESERVAR AHORA',
+      moreInfo: 'MÁS INFO',
+      customPackageText: '¿No encuentras lo que buscas? Podemos crear un paquete personalizado para ti.',
+      contactUs: 'Contáctanos',
+      scenic: {
+        title: 'PAQUETE ESCÉNICO',
+        tagline: '¿Listo para un escape tranquilo?',
+        description: 'Deslízate sobre las copas de los árboles y explora la impresionante belleza de Monteverde. Perfecto para amantes de la naturaleza.',
+        inclusions: [
+          'Teleférico',
+          '6 puentes colgantes',
+          'Guía profesional',
+          'Tour de vida silvestre'
+        ]
+      },
+      explorer: {
+        title: 'PAQUETE EXPLORADOR',
+        tagline: '¿Listo para aventura y descubrimiento?',
+        description: '¡La aventura se encuentra con la maravilla! Perfecto para aventureros curiosos que quieren lo mejor de ambos mundos.',
+        inclusions: [
+          'Teleférico',
+          '7 tirolesas',
+          '6 puentes colgantes',
+          'Equipo de seguridad'
+        ]
+      },
+      adventure: {
+        title: 'PAQUETE AVENTURA',
+        tagline: '¿Listo para superar tus límites?',
+        description: '¡Siente la emoción! Vuela por el dosel y conquista las alturas con nuestro emocionante paquete — perfecto para buscadores de adrenalina.',
+        inclusions: [
+          'Teleférico',
+          '7 tirolesas',
+          'Tirolesa tándem en bici',
+          'Escalada de árboles',
+          '4 puentes de mono',
+          'Salto libre en árbol'
+        ]
+      },
+      extreme: {
+        title: 'PAQUETE EXTREMO',
+        tagline: '¿Listo para la adrenalina definitiva?',
+        description: '¡Experimenta TODO! Desde tirolesas hasta desafíos en las copas — esta es la experiencia más completa e inolvidable.',
+        inclusions: [
+          'Todo el Paquete Aventura',
+          'Paintball (2 horas)',
+          '200 bolas de pintura',
+          'Almuerzo en restaurante',
+          'Video tour GoPro'
+        ]
+      }
+    },
+    en: {
+      sectionTitle: 'Our Activities',
+      sectionSubtitle: 'Discover all the experiences we have prepared for you and your family at Jungle Breezes.',
+      perPerson: '/ person',
+      includes: 'Includes:',
+      bookNow: 'BOOK NOW',
+      moreInfo: 'MORE INFO',
+      customPackageText: "Can't find what you're looking for? We can create a custom package for you.",
+      contactUs: 'Contact us',
+      scenic: {
+        title: 'SCENIC PACKAGE',
+        tagline: 'Ready for a peaceful escape?',
+        description: "Glide above the treetops and wander through Monteverde's breathtaking beauty. Perfect for nature lovers and awe-seekers.",
+        inclusions: [
+          'Cableway',
+          '6 hanging bridges',
+          'Professional guide',
+          'Wildlife tour'
+        ]
+      },
+      explorer: {
+        title: 'EXPLORER PACKAGE',
+        tagline: 'Ready for adventure and discovery?',
+        description: 'Adventure meets wonder! Perfect for curious adventurers who want the best of both worlds — thrilling heights and serene forest walks.',
+        inclusions: [
+          'Cableway',
+          '7 ziplines',
+          '6 hanging bridges',
+          'Safety equipment'
+        ]
+      },
+      adventure: {
+        title: 'ADVENTURE PACKAGE',
+        tagline: 'Ready to push your limits?',
+        description: 'Feel the rush! Fly through the canopy and conquer the heights with our thrilling package — perfect for adrenaline seekers.',
+        inclusions: [
+          'Cableway',
+          '7 ziplines',
+          'Tandem zipline bike',
+          'Tree Climbing',
+          '4 monkey bridges',
+          'Tree free jump'
+        ]
+      },
+      extreme: {
+        title: 'EXTREME PACKAGE',
+        tagline: 'Ready for the ultimate adrenaline?',
+        description: "Experience it ALL! From soaring ziplines to treetop trails and heart-pounding challenges — this is Treetopia's most complete and unforgettable experience.",
+        inclusions: [
+          'All Adventure Package',
+          'Paintball (2 hours)',
+          '200 paintballs',
+          'Restaurant lunch',
+          'GoPro video tour'
+        ]
+      }
+    }
   }
 };
 
@@ -202,36 +354,32 @@ export const LanguageProvider: React.FC<{children: React.ReactNode}> = ({ childr
     localStorage.setItem('language', lang);
   };
 
-  const t = (key: string): string => {
+  const t = (key: string): string | string[] => { // ← Ahora puede devolver array
     const keys = key.split('.');
-    if (keys.length < 2) return key; // Al menos necesitamos section.key
+    if (keys.length < 2) return key;
     
     const section = keys[0];
     const restKeys = keys.slice(1);
     
-    // Verificar si existe la sección
     if (!translations[section] || !translations[section][language]) {
-      return key; // Fallback si no existe la sección o el idioma
+      return key;
     }
     
-    // Comenzar desde la sección y el idioma actual
     let current: any = translations[section][language];
     
-    // Navegar por las claves restantes
     for (const nestedKey of restKeys) {
       if (current[nestedKey] === undefined) {
-        return key; // Fallback si no se encuentra la clave en algún nivel
+        return key;
       }
       
       current = current[nestedKey];
     }
     
-    // Si el resultado final es un string, devuélvelo
-    if (typeof current === 'string') {
+    // Si el resultado es un string o un array, devuélvelo
+    if (typeof current === 'string' || Array.isArray(current)) { // ← Acepta arrays
       return current;
     }
     
-    // Si llegamos a un objeto y no a un string, devolver la clave original
     return key;
   };
 
