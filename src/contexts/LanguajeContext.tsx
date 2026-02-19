@@ -3,13 +3,12 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 
 type Language = 'es' | 'en';
 
-// Definición recursiva para permitir múltiples niveles de anidamiento INCLUYENDO ARRAYS
 interface TranslationValue {
-  [key: string]: string | string[] | TranslationValue; // ← Agregamos string[]
+  [key: string]: string | string[] | TranslationValue;
 }
 
 interface TranslationSection {
-  [key: string]: string | string[] | TranslationValue; // ← Agregamos string[]
+  [key: string]: string | string[] | TranslationValue;
 }
 
 interface TranslationLanguage {
@@ -25,7 +24,7 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (language: Language) => void;
   translations: TranslationsType;
-  t: (key: string) => string | string[]; // ← Puede devolver string o array
+  t: (key: string) => string | string[];
 }
 
 const translations: TranslationsType = {
@@ -327,6 +326,7 @@ const translations: TranslationsType = {
   }
 };
 
+
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const useLanguage = () => {
@@ -339,20 +339,28 @@ export const useLanguage = () => {
 
 export const LanguageProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>('es');
+  const [mounted, setMounted] = useState(false); // ← NUEVO
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language') as Language;
-    if (savedLanguage && (savedLanguage === 'es' || savedLanguage === 'en')) {
-      setLanguageState(savedLanguage);
+    setMounted(true); // ← NUEVO
+    // Solo accede a localStorage después del montaje
+    if (typeof window !== 'undefined') { // ← NUEVO
+      const savedLanguage = localStorage.getItem('language') as Language;
+      if (savedLanguage && (savedLanguage === 'es' || savedLanguage === 'en')) {
+        setLanguageState(savedLanguage);
+      }
     }
   }, []);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem('language', lang);
+    // Solo guarda en localStorage si estamos en el cliente
+    if (typeof window !== 'undefined') { // ← NUEVO
+      localStorage.setItem('language', lang);
+    }
   };
 
-  const t = (key: string): string | string[] => { // ← Ahora puede devolver array
+  const t = (key: string): string | string[] => {
     const keys = key.split('.');
     if (keys.length < 2) return key;
     
@@ -363,6 +371,7 @@ export const LanguageProvider: React.FC<{children: React.ReactNode}> = ({ childr
       return key;
     }
     
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let current: any = translations[section][language];
     
     for (const nestedKey of restKeys) {
@@ -373,8 +382,7 @@ export const LanguageProvider: React.FC<{children: React.ReactNode}> = ({ childr
       current = current[nestedKey];
     }
     
-    // Si el resultado es un string o un array, devuélvelo
-    if (typeof current === 'string' || Array.isArray(current)) { // ← Acepta arrays
+    if (typeof current === 'string' || Array.isArray(current)) {
       return current;
     }
     
@@ -387,6 +395,11 @@ export const LanguageProvider: React.FC<{children: React.ReactNode}> = ({ childr
     translations,
     t
   };
+
+  // Prevenir flash de contenido sin traducir
+  if (!mounted) { // ← NUEVO
+    return null; // o un loader
+  }
 
   return (
     <LanguageContext.Provider value={value}>
