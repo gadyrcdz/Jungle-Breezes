@@ -90,25 +90,25 @@ const ActivityCards = () => {
   const totalDots = Math.ceil(packages.length - cardsPerView + 1);
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 max-w-[1600px] ">
+    <section className="py-12 bg-gray-50">
+      <div className="mx-auto px-3 max-w-[1800px]">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
             {t('packages.sectionTitle')}
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base text-gray-600 max-w-3xl mx-auto">
             {t('packages.sectionSubtitle')}
           </p>
         </div>
 
         {/* Carousel Container */}
-        <div className="relative px-8">
+        <div className="relative px-14 lg:px-16">
           {/* Navigation Buttons */}
           {currentSlide > 0 && (
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-6 z-30 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full p-3 shadow-lg transition-all duration-200 focus:outline-none"
+              className="absolute left-2 lg:left-2 top-1/2 -translate-y-1/2 z-30 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full p-3 shadow-lg transition-all duration-200 focus:outline-none"
               aria-label="Previous package"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -120,7 +120,7 @@ const ActivityCards = () => {
           {currentSlide < maxSlide && (
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-6 z-30 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full p-3 shadow-lg transition-all duration-200 focus:outline-none"
+              className="absolute right-2 lg:right-2 top-1/2 -translate-y-1/2 z-30 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full p-3 shadow-lg transition-all duration-200 focus:outline-none"
               aria-label="Next package"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -130,8 +130,8 @@ const ActivityCards = () => {
           )}
 
           {/* Cards Container */}
-          <div className="relative ">
-            <div className="overflow-hidden pl-3">
+          <div className="relative">
+            <div className="overflow-hidden">
               <div 
                 className="flex gap-6 transition-transform duration-700 ease-in-out"
                 style={{
@@ -144,9 +144,9 @@ const ActivityCards = () => {
                     className="relative flex-shrink-0"
                     style={{ width: `${100 / cardsPerView}%` }}
                   >
-                    <div className="bg-white rounded-t-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col" style={{ overflow: 'visible', minHeight: '715px' }}>
+                    <div className="bg-white rounded-t-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col h-[600px]" style={{ overflow: 'visible' }}>
                       {/* Image Section */}
-                      <div className="relative h-[340px]" style={{ overflow: 'visible', borderTopLeftRadius: '0.75rem', borderTopRightRadius: '0.75rem' }}>
+                      <div className="relative h-[280px]" style={{ overflow: 'visible', borderTopLeftRadius: '0.75rem', borderTopRightRadius: '0.75rem' }}>
                         <Image
                           src={pkg.image}
                           alt={t(`packages.${pkg.id}.title`) as string}
@@ -201,16 +201,16 @@ const ActivityCards = () => {
                       </div>
 
                       {/* Content Section */}
-                      <div className="p-6 flex-1 flex flex-col">
+                      <div className="p-4 flex-1 flex flex-col">
                         {/* Title */}
-                        <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-wide text-center">
+                        <h3 className="text-xl font-black text-gray-900 mb-2 tracking-wide text-center">
                           {t(`packages.${pkg.id}.title`)}
                         </h3>
 
                         {/* Price */}
-                        <div className="text-center mb-4">
+                        <div className="text-center mb-3">
                           <span 
-                            className="text-3xl font-bold"
+                            className="text-2xl font-bold"
                             style={{ color: greenTheme.priceColor }}
                           >
                             {pkg.price}
@@ -221,39 +221,39 @@ const ActivityCards = () => {
                         </div>
 
                         {/* Description */}
-                        <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                        <p className="text-gray-600 text-xs leading-relaxed mb-3">
                           {t(`packages.${pkg.id}.description`)}
                         </p>
 
                         {/* Inclusions */}
-                        <div className="mb-6 flex-1">
-                          <h4 className="text-sm font-bold text-gray-900 mb-3 flex items-center">
-                            <svg className="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
+                        <div className="mb-4 flex-1">
+                          <h4 className="text-xs font-bold text-gray-900 mb-2 flex items-center">
+                            <svg className="w-3 h-3 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                             </svg>
                             {t('packages.includes')}
                           </h4>
-                          <div className="grid grid-cols-2 gap-2">
+                          <div className="grid grid-cols-2 gap-1.5">
                             {(t(`packages.${pkg.id}.inclusions`) as unknown as string[]).map((item: string, idx: number) => (
                               <div 
                                 key={idx}
-                                className="flex items-start gap-2"
+                                className="flex items-start gap-1.5"
                               >
-                                <div className="flex-shrink-0 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center mt-0.5">
-                                  <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <div className="flex-shrink-0 w-3 h-3 rounded-full bg-green-500 flex items-center justify-center mt-0.5">
+                                  <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                                   </svg>
                                 </div>
-                                <span className="text-gray-700 text-sm leading-tight">{item}</span>
+                                <span className="text-gray-700 text-xs leading-tight">{item}</span>
                               </div>
                             ))}
                           </div>
                         </div>
 
                         {/* Buttons */}
-                        <div className="flex flex-row gap-3 mt-auto">
+                        <div className="flex flex-row gap-2 mt-auto">
                           <button
-                            className="flex-1 text-white font-bold py-3 px-4 rounded-full text-sm shadow-md hover:shadow-lg transition-all duration-200 uppercase tracking-wider"
+                            className="flex-1 text-white font-bold py-2 px-3 rounded-full text-xs shadow-md hover:shadow-lg transition-all duration-200 uppercase tracking-wider"
                             style={{ 
                               backgroundColor: greenTheme.buttonColor,
                             }}
@@ -268,7 +268,7 @@ const ActivityCards = () => {
                           </button>
                           <Link 
                             href={`/packages/${pkg.id}`}
-                            className="flex-1 bg-white text-gray-900 font-bold py-3 px-4 rounded-full text-center text-sm hover:bg-gray-50 transition-all duration-200 uppercase tracking-wider underline"
+                            className="flex-1 bg-white text-gray-900 font-bold py-2 px-3 rounded-full text-center text-xs hover:bg-gray-50 transition-all duration-200 uppercase tracking-wider underline"
                           >
                             {t('packages.moreInfo')}
                           </Link>
@@ -282,7 +282,7 @@ const ActivityCards = () => {
           </div>
 
           {/* Dots Navigation */}
-          <div className="flex justify-center mt-10 gap-2">
+          <div className="flex justify-center mt-6 gap-2">
             {Array.from({ length: totalDots }).map((_, index) => (
               <button
                 key={index}
@@ -299,7 +299,7 @@ const ActivityCards = () => {
         </div>
 
         {/* Additional Info */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-8">
           <p className="text-base text-gray-600 mb-3">
             {t('packages.customPackageText')}
           </p>

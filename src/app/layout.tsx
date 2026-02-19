@@ -24,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
-      <body className={`${openSans.variable} ${playfairDisplay.variable} ${openSans.className}`}>
+    <html lang="es" className="overflow-x-hidden">
+      <body className={`${openSans.variable} ${playfairDisplay.variable} ${openSans.className} overflow-x-hidden`}>
         <LanguageProvider>
           {children}
         </LanguageProvider>
