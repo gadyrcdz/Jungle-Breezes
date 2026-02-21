@@ -131,7 +131,7 @@ const ActivityCards = () => {
 
           {/* Cards Container */}
           <div className="relative">
-            <div className="overflow-hidden">
+            <div className="overflow-hidden pl-3">
               <div 
                 className="flex gap-6 transition-transform duration-700 ease-in-out"
                 style={{
