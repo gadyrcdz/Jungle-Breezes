@@ -49,7 +49,7 @@ const Testimonials = () => {
         ))}
       </div>
       
-      <p className="text-sm italic mb-3 line-clamp-3">"{testimonial.quote}"</p>
+      <p className="text-sm italic mb-3 line-clamp-3">&ldquo{testimonial.quote}&ldquo</p>
       
       <div>
         <p className="font-bold text-sm">{testimonial.name}</p>
