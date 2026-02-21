@@ -5,7 +5,7 @@
 
 > Un paraíso de aventura y naturaleza en Costa Rica. Descubre nuestras experiencias de canopy, puentes colgantes, paintball y más.
 
-![image](https://github.com/user-attachments/assets/1e2f0b3c-1668-4221-b37e-0420c6f6dcb0)
+![image](https://github.com/user-attachments/assets/9d3d000f-4dd1-47da-a931-e960a2007695)
 
 ## 📋 Contenido
 
