@@ -2,11 +2,11 @@
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
-> [Sitio desplegado]([url](https://jungle-breezes.vercel.app/)
+> [Sitio desplegado](https://jungle-breezes.vercel.app)
 
 > Un paraíso de aventura y naturaleza en Costa Rica. Descubre nuestras experiencias de canopy, puentes colgantes, paintball y más.
 
-![image](https://github.com/user-attachments/assets/9d3d000f-4dd1-47da-a931-e960a2007695)
+![image](https://github.com/user-attachments/assets/9d3d000f-4dd1-47da-a931-e960a2007695 )
 
 ## 📋 Contenido
 
