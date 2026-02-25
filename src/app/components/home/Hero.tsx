@@ -32,13 +32,13 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
               href="/activities" 
-              className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors"
+              className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors"
             >
               {t('hero.seeActivities')}
             </Link>
             <Link 
               href="/book" 
-              className="bg-transparent hover:bg-white/20 text-white border-2 border-white font-bold py-3 px-8 rounded-full text-lg transition-colors"
+              className="bg-transparent hover:bg-white/30 text-white border-2 border-white font-bold py-3 px-8 rounded-full text-lg transition-colors"
             >
               {t('hero.bookin')}
             </Link>
