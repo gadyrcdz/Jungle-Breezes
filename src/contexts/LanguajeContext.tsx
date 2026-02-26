@@ -20,11 +20,6 @@ interface TranslationsType {
   [section: string]: TranslationLanguage;
 }
 
-type TranslationNode =
-  | string
-  | string[]
-  | { [key: string]: TranslationNode };
-
 interface LanguageContextType {
   language: Language;
   setLanguage: (language: Language) => void;
@@ -386,13 +381,6 @@ export const LanguageProvider: React.FC<{children: React.ReactNode}> = ({ childr
       
       current = current[nestedKey];
     }
-
-    if (!(nestedKey in current)) {
-      return key;
-    }
-
-    current = current[nestedKey];
-  }
     
     if (typeof current === 'string' || Array.isArray(current)) {
       return current;
