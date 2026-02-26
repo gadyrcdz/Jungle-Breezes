@@ -30,7 +30,7 @@ const ContactCTA = () => {
               <p className="mb-4">{t('contact.textBookin')}</p>
               <Link 
                 href="/book" 
-                className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                className="inline-block bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-6 rounded-full transition-colors"
               >
                 {t('contact.bookin')}
               </Link>
@@ -41,7 +41,7 @@ const ContactCTA = () => {
               <p className="mb-4">{t('contact.textContact')}</p>
               <Link 
                 href="/contacto" 
-                className="inline-block bg-white hover:bg-gray-100 text-green-800 font-bold py-2 px-6 rounded-full transition-colors"
+                className="inline-block bg-transparent hover:bg-white/30 text-white border-2 border-white font-bold py-2 px-6 rounded-full transition-colors"
               >
                 {t('contact.contactButton')}
               </Link>
